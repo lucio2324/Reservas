@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 31-ago-2017 10:25:34 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Cliente" table="cliente" catalog="reservas" optimistic-lock="version">
+        <id name="idCliente" type="java.lang.Integer">
+            <column name="id_cliente" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreCliente" type="string">
+            <column name="nombre_cliente" length="50" not-null="true" />
+        </property>
+        <property name="fechaNacimientoCliente" type="date">
+            <column name="fechaNacimiento_cliente" length="10" not-null="true" />
+        </property>
+        <property name="telefonoCliente" type="string">
+            <column name="telefono_cliente" length="50" not-null="true" />
+        </property>
+        <property name="EMailCliente" type="string">
+            <column name="`E-mail_cliente`" length="50" not-null="true" />
+        </property>
+        <property name="idUsuario" type="int">
+            <column name="id_usuario" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

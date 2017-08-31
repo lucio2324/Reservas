@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 31-ago-2017 10:25:34 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Hora" table="hora" catalog="reservas" optimistic-lock="version">
+        <id name="idHora" type="java.lang.Integer">
+            <column name="id_hora" />
+            <generator class="identity" />
+        </id>
+        <property name="horaHora" type="int">
+            <column name="hora_hora" not-null="true" />
+        </property>
+        <property name="disponibleHora" type="boolean">
+            <column name="disponible_hora" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

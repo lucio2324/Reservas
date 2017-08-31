@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 31-ago-2017 10:25:34 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Reservas" table="reservas" catalog="reservas" optimistic-lock="version">
+        <id name="idReservas" type="int">
+            <column name="id_reservas" />
+            <generator class="assigned" />
+        </id>
+        <property name="idCliente" type="int">
+            <column name="id_cliente" not-null="true" />
+        </property>
+        <property name="idClub" type="int">
+            <column name="id_club" not-null="true" />
+        </property>
+        <property name="idCancha" type="int">
+            <column name="id_cancha" not-null="true" />
+        </property>
+        <property name="idFecha" type="int">
+            <column name="id_fecha" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

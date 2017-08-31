@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 31-ago-2017 10:25:34 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Fecha" table="fecha" catalog="reservas" optimistic-lock="version">
+        <id name="idFecha" type="java.lang.Integer">
+            <column name="id_fecha" />
+            <generator class="identity" />
+        </id>
+        <property name="diaFecha" type="int">
+            <column name="dia_fecha" not-null="true" />
+        </property>
+        <property name="mesFecha" type="int">
+            <column name="mes_fecha" not-null="true" />
+        </property>
+        <property name="anoFecha" type="int">
+            <column name="ano_fecha" not-null="true" />
+        </property>
+        <property name="idHora" type="int">
+            <column name="id_hora" not-null="true" />
+        </property>
+        <property name="disponibleFecha" type="boolean">
+            <column name="disponible_fecha" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

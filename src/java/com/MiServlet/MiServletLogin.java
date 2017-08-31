@@ -1,11 +1,7 @@
 package com.MiServlet;
 
-import com.MisEntidades.Usuarios;
-import com.javaBeans.javaBeans;
+import com.sun.xml.internal.messaging.saaj.util.Base64;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +15,13 @@ public class MiServletLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        
+            String usu = request.getParameter("usuario");
+            String cla = request.getParameter("clave");
+            
+            String usuario = Base64.base64Decode(usu);
+            String clave = Base64.base64Decode(cla);
+        
     }
 
     @Override
@@ -26,25 +29,13 @@ public class MiServletLogin extends HttpServlet {
             throws ServletException, IOException {
             response.setContentType("text/html;charset=UTF-8");
         
-            String usuario = request.getParameter("usuario");
-            String clave = request.getParameter("clave");
+            String usu = request.getParameter("usuario");
+            String cla = request.getParameter("clave");
             
-            javaBeans jbu = new javaBeans();
-            
-            List<Usuarios> validar = jbu.mostrarUsuarios();  
-            List<String> usBase = new ArrayList<String>();
-            PrintWriter out = response.getWriter();
-        
-            int i = 0;
-            while (validar.size() > i) {
-           usBase.add(validar.get(i).getNombreUsuario()+
-                   validar.get(i).getContraseñaUsuario());
-           i++;
-        }
-            if (usBase.contains(usuario+clave)) {
-            out.print("Es correcto");
-        } else {
-            out.print("El usuario o la contraseña son incorrectos");
-        }
-    }
+            String usuario = Base64.base64Decode(usu);
+            String clave = Base64.base64Decode(cla);
+
+       
+  }
 }
+

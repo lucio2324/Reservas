@@ -1,11 +1,9 @@
 package com.MiServlet;
 
-import com.MisEntidades.Usuarios;
-import com.javaBeans.javaBeans;
+import EntidadesDao.UsuarioDAO;
+import entidades.Usuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,34 +14,20 @@ public class MiServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException {
-       
-        response.setContentType("text/html;charset=UTF-8");
-        
+         String correo = request.getParameter("correo");
         String usuario = request.getParameter("usuario");
         String clave = request.getParameter("clave");
         String tipo = request.getParameter("tipo");
         Usuarios usu = new Usuarios();
+        usu.setEMailUsuario(correo);
         usu.setNombreUsuario(usuario);
-        usu.setContraseñaUsuario(clave);
+        usu.setContrasenaUsuario(clave);
         usu.setTipoUsuario(tipo);
+       
+        PrintWriter out = response.getWriter();
         
-        javaBeans jbus = new javaBeans();
-        
-        
-         List<Usuarios> validar = jbus.mostrarUsuarios();  
-            PrintWriter out = response.getWriter();
-            List<String> usBase = new ArrayList<String>();
-            int i = 0;
-            while (validar.size() > i) {
-                  usBase.add(validar.get(i).getNombreUsuario());
-            i++;
-        }    
-            if (usBase.contains(usuario)) {
-                  out.print("El usuario ya existe");
-                    return;
-                }else {
-                  jbus.guardar(usu);
-                 out.print("Se guardo correctamente");
-            }
+        UsuarioDAO agregar = new UsuarioDAO();
+     agregar.agregar(usu);
+     out.print("funciono");
     }
 }

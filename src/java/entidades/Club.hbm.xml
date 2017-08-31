@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 31-ago-2017 10:25:34 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Club" table="club" catalog="reservas" optimistic-lock="version">
+        <id name="idClub" type="java.lang.Integer">
+            <column name="id_club" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreClub" type="string">
+            <column name="nombre_club" length="50" not-null="true" />
+        </property>
+        <property name="direccionChub" type="string">
+            <column name="direccion_chub" length="50" not-null="true" />
+        </property>
+        <property name="telefonoClub" type="string">
+            <column name="telefono_club" length="50" not-null="true" />
+        </property>
+        <property name="administradorClub" type="string">
+            <column name="administrador_club" length="50" not-null="true" />
+        </property>
+        <property name="idUsuario" type="int">
+            <column name="id_usuario" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
